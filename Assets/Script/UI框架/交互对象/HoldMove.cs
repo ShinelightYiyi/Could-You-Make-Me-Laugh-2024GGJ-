@@ -13,6 +13,7 @@ public class HoldMove : MonoBehaviour, IPointerDownHandler, IPointerExitHandler,
     private Animator ani;
     private Vector2 normalPosition;
     private GameObject positonObject;
+    private static int index = 0;
 
     private void Start()
     {
@@ -64,7 +65,9 @@ public class HoldMove : MonoBehaviour, IPointerDownHandler, IPointerExitHandler,
             {
                 EventCenter.Instance.EventTrigger("Wrong");
             }
-            
+            index++;
+            Debug.Log(index);
+            EventCenter.Instance.EventTrigger<int>("Laugh", index);
         }
     }
 

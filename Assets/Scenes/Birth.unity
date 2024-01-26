@@ -444,6 +444,7 @@ GameObject:
   - component: {fileID: 233713878}
   - component: {fileID: 233713880}
   - component: {fileID: 233713879}
+  - component: {fileID: 233713881}
   m_Layer: 5
   m_Name: MotherPop
   m_TagString: Untagged
@@ -490,7 +491,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 34dd32ae4a04bdc438e1f9518d5f8258, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 04f086bf695669f418161add266f6c17, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -508,6 +509,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 233713877}
   m_CullTransparentMesh: 1
+--- !u!95 &233713881
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233713877}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7d5f16cbfdf037743b4bc04638ef5cbc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &402280552
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,7 +702,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 377, y: 22}
+  m_AnchoredPosition: {x: 250, y: 9}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!50 &571496250
@@ -779,6 +801,7 @@ GameObject:
   - component: {fileID: 812704534}
   - component: {fileID: 812704536}
   - component: {fileID: 812704535}
+  - component: {fileID: 812704537}
   m_Layer: 5
   m_Name: Around
   m_TagString: Untagged
@@ -825,7 +848,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b09d9676de980da47bd3db7bdebc671b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 55e9375cbcfa397459ad786ffd3dc06b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -843,6 +866,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 812704533}
   m_CullTransparentMesh: 1
+--- !u!114 &812704537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 812704533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d686bcc99fdf6a34292be0f69df55ac4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageSprite:
+  - {fileID: 21300000, guid: 55e9375cbcfa397459ad786ffd3dc06b, type: 3}
+  - {fileID: 21300000, guid: 3a552df30aee64b4a9ee4dad1f8948f4, type: 3}
+  - {fileID: 21300000, guid: 00007b27c271a9846a419da67ad9c76e, type: 3}
+  - {fileID: 21300000, guid: 02a8e8df061e1334daad0e35fa1f6d64, type: 3}
+  - {fileID: 21300000, guid: 430025024465b6a45b3565428ee62748, type: 3}
+  - {fileID: 21300000, guid: d0f5fc9ee3dcd1c4abf03362b8d90b0c, type: 3}
+  - {fileID: 21300000, guid: 48e047795bcd6f247a7f5b4c34241f3c, type: 3}
+  - {fileID: 21300000, guid: c56e860515b992b4db832bb1845d4aa1, type: 3}
+  - {fileID: 21300000, guid: d8530f0ba3ace4d40932df00eeb3350d, type: 3}
+  - {fileID: 21300000, guid: 205f9cb3d56bc9c4e954940de91a2109, type: 3}
+  - {fileID: 21300000, guid: f312a101302dd8b4b99b47421428655f, type: 3}
+  - {fileID: 21300000, guid: 775124431be43c64d9ad77dcbfd73e6d, type: 3}
+  - {fileID: 21300000, guid: 95aa2eac3eafafd408ad74fc087a36af, type: 3}
+  - {fileID: 21300000, guid: 69012624c3a3b2c4491a9948509bc9ee, type: 3}
+  - {fileID: 21300000, guid: 7441f235fc9fec44087eb59b2c08d0f4, type: 3}
+  - {fileID: 21300000, guid: 2bf70926f9c97c54a818ce77f4060690, type: 3}
+  - {fileID: 21300000, guid: e1141e80f6874ca47a436623bbb2f970, type: 3}
+  - {fileID: 21300000, guid: dda1ce47320b48144865d56e1e471945, type: 3}
+  - {fileID: 21300000, guid: 5d32ee1b0a3347648beca95b0fe61c5f, type: 3}
+  - {fileID: 21300000, guid: 77a099b36660aef4a977a1b946a9f62e, type: 3}
 --- !u!1 &905407661
 GameObject:
   m_ObjectHideFlags: 0
@@ -873,6 +929,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childAni: {fileID: 402280556}
+  popAni: {fileID: 66237959}
+  motherAni: {fileID: 233713881}
 --- !u!4 &905407663
 Transform:
   m_ObjectHideFlags: 0

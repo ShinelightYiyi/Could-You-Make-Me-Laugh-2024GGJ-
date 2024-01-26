@@ -22,7 +22,7 @@ public class ChoicePanel : BasePanel
     private void GoIn()
     {
         GameObject go = GameObject.FindGameObjectWithTag(name);
-        Debug.Log(go.transform.position.x);
+        //Debug.Log(go.transform.position.x);
         DG.Tweening.Sequence goSequence = DOTween.Sequence(go);
         goSequence.Append(go.transform.DOMoveX(7.79f, 1f).SetEase(Ease.OutCubic));
         goSequence.OnComplete(() => EventCenter.Instance.EventTrigger("πÃ∂®Œª÷√"));

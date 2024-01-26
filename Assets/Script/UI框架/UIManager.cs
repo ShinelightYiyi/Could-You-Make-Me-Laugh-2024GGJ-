@@ -81,8 +81,10 @@ public class UIManager
         }
 
         GameObject uiObject = GetSingleObject(basePanel.uiType ,isControl);
-
-        uiObjectDic.Add(basePanel.uiType.Name, uiObject);
+        if (!uiObjectDic.ContainsKey(basePanel.uiType.Name))
+        {
+            uiObjectDic.Add(basePanel.uiType.Name, uiObject);
+        }
 
         basePanel.activeObj = uiObject;
 
