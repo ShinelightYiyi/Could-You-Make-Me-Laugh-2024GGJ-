@@ -115,5 +115,9 @@ public class UIManager
             }
         }
     }
+    public void Clear()
+    {
+        uiObjectDic.Clear();
+    }
 
 }

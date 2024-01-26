@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class GameRoot : MonoBehaviour
@@ -21,8 +22,11 @@ public class GameRoot : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        DontDestroyOnLoad(gameObject);
         GameObject go = GameObject.FindGameObjectWithTag("NormalCanvas");
         DontDestroyOnLoad(go);
+
+      
     }
 
 
