@@ -23,6 +23,6 @@ public class PanelA : BasePanel
     {
         GameObject go = GameObject.FindGameObjectWithTag(name);
         DG.Tweening.Sequence goSequence = DOTween.Sequence(go);
-        goSequence.Append(go.transform.DOMoveX(6.25f, 0.5f).SetEase(Ease.OutCubic));
+        goSequence.Append(go.transform.DOMoveX(7.25f, 0.5f).SetEase(Ease.OutCubic));
     }
 }

@@ -32,22 +32,26 @@ public class HoldMove : MonoBehaviour, IPointerDownHandler, IPointerExitHandler,
             if(uiOjbect.tag == "Laugh")
             {
                 EventCenter.Instance.EventTrigger("Laugh");
+                MonoManager.Instance.StartCroutine(ChangeScene());
             }
             if(uiOjbect.tag == "Bad")
             {
                 EventCenter.Instance.EventTrigger("Bad");
             }
-           // MonoManager.Instance.StartCroutine(ChangeScene());
+            
         }
     }
 
-    /* private IEnumerator ChangeScene()
-     {  
-         GameRoot.Instance.rootUIManager.Push(new PassPanel());
+     private IEnumerator ChangeScene()
+     {
+        yield return new WaitForSeconds(1f);
+        // GameRoot.Instance.rootUIManager.Pop(true);
+        EventCenter.Instance.Clear();
+         GameRoot.Instance.rootUIManager.Push(new PassPanel(), false);
          yield return new WaitForSeconds(0.2f);
          SceneController.Instance.LoadSceneAsyn(new SceneA());
      }
-    */
+    
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

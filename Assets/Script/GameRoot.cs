@@ -34,8 +34,8 @@ public class GameRoot : MonoBehaviour
 
     private void Start()
     {
-        rootUIManager.Push(new PanelA());
-        laughAni = GameObject.FindGameObjectWithTag("Answer").GetComponent<Animator>();
+       rootUIManager.Push(new PanelA() ,true);
+       laughAni = GameObject.FindGameObjectWithTag("Answer").GetComponent<Animator>();
     }
 
     private void LaughA()
@@ -46,6 +46,7 @@ public class GameRoot : MonoBehaviour
 
     private void BadA()
     {
+        EventCenter.Instance.EventTrigger("加入表情");
         Debug.Log("触发Bad事件");
     }
 }

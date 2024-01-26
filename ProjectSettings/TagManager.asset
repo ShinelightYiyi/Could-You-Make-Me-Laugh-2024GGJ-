@@ -8,6 +8,11 @@ TagManager:
   - Music
   - Position
   - PassPanel
+  - Canvas
+  - PanelA
+  - Laugh
+  - Bad
+  - Answer
   layers:
   - Default
   - TransparentFX

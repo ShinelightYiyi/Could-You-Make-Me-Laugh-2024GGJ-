@@ -50,7 +50,7 @@ public class PassPanel : BasePanel
             Image image = go.GetComponent<Image>();
             DG.Tweening.Sequence imageSequence = DOTween.Sequence(image);
             imageSequence.Append(image.DOFade(0f, 0.5f));
-            imageSequence.OnComplete(() => GameObject.Destroy(go));
+        //    imageSequence.OnComplete(() => GameObject.Destroy(go));
         }
     }
 }

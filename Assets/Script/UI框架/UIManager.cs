@@ -27,12 +27,15 @@ public class UIManager
     /// </summary>
     public GameObject canvasObj;
 
+
+    public GameObject N_canvasObj;
+
     /// <summary>
     /// 加载UI至场景的Canvas中
     /// </summary>
     /// <param name="uiType"></param>
     /// <returns></returns>
-    public GameObject GetSingleObject(UIType uiType)
+    public GameObject GetSingleObject(UIType uiType , bool isControl)
     {
         if (uiObjectDic.ContainsKey(uiType.Name))
         {
@@ -41,26 +44,43 @@ public class UIManager
 
         if (canvasObj == null)
         {
-            canvasObj = UIMethod.Instance.FindCanvas();
+
+                canvasObj = UIMethod.Instance.FindCanvas();
+            
+        }
+        if(N_canvasObj == null)
+        {
+
+                N_canvasObj = UIMethod.Instance.FindNormalCanvas();
+            
+        }
+        if (isControl)
+        {
+            GameObject gameObject = GameObject.Instantiate<GameObject>(Resources.Load<GameObject>(uiType.Path), canvasObj.transform);
+            return gameObject;
+        } 
+        else
+        {
+            GameObject gameObject = GameObject.Instantiate<GameObject>(Resources.Load<GameObject>(uiType.Path), N_canvasObj.transform);
+            return gameObject;
         }
 
-        GameObject gameObject = GameObject.Instantiate<GameObject>(Resources.Load<GameObject>(uiType.Path), canvasObj.transform);
-
-        return gameObject;
+       
     }
 
     /// <summary>
-    /// 将UI推入场景
+    /// 推入UI，为ture时推入控制面板,为false时推入场景面板
     /// </summary>
     /// <param name="basePanel"></param>
-    public void Push(BasePanel basePanel)
+    /// <param name="isControl"></param>
+    public void Push(BasePanel basePanel ,bool isControl)
     {
         if (uiStack.Count > 0)
         {
             uiStack.Peek().OnDisable();
         }
 
-        GameObject uiObject = GetSingleObject(basePanel.uiType);
+        GameObject uiObject = GetSingleObject(basePanel.uiType ,isControl);
 
         uiObjectDic.Add(basePanel.uiType.Name, uiObject);
 

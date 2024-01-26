@@ -15,10 +15,21 @@ public class UIMethod
     /// 获取场景中的Canvas
     /// </summary>
     /// <returns></returns>
-    public GameObject FindCanvas()
+    public GameObject FindNormalCanvas()
     {
         GameObject go = GameObject.FindGameObjectWithTag("NormalCanvas");
         if(go == null)
+        {
+            Debug.LogWarning("无效的获取Canvas");
+            return null;
+        }
+        return go;
+    }
+
+    public GameObject FindCanvas()
+    {
+        GameObject go = GameObject.FindGameObjectWithTag("Canvas");
+        if (go == null)
         {
             Debug.LogWarning("无效的获取Canvas");
             return null;
