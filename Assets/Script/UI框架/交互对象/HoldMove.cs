@@ -7,13 +7,19 @@ using UnityEngine.UI;
 
 public class HoldMove : MonoBehaviour, IPointerDownHandler, IPointerExitHandler, IPointerUpHandler
 {
-    private bool isDown , isIn;
+    private bool isDown , isIn,isStart;
     private GameObject uiOjbect;
     private Vector3 position;
+    private Animator ani;
+    private Vector2 normalPosition;
+    private GameObject positonObject;
 
     private void Start()
     {
-        uiOjbect = this.gameObject;
+        uiOjbect = this.gameObject;     
+        ani = gameObject.GetComponent<Animator>();
+        positonObject = GameObject.FindGameObjectWithTag("Position");
+        EventCenter.Instance.AddEventListener("¹Ì¶¨Î»ÖÃ", () => GetPositon());
     }
 
     private void Update()
@@ -23,35 +29,50 @@ public class HoldMove : MonoBehaviour, IPointerDownHandler, IPointerExitHandler,
             position = Input.mousePosition;
          //   uiOjbect.transform.DOShakePosition(0.1f, 0.1f);
             uiOjbect.transform.position = new Vector3(Camera.main.ScreenToWorldPoint(position).x , Camera.main.ScreenToWorldPoint(position).y,0) ;
-
+            ani.SetBool("isDown", true);
         }
+        else
+        {
+            ani.SetBool("isDown", false);
+            if(isStart)   gameObject.transform.DOMove(normalPosition, 0.2f).SetEase(Ease.OutCubic);
+        }
+
+
+        if(isIn)
+        {
+            positonObject.transform.DOScale(1.1f, 0.2f);
+        }
+        else
+        {
+            positonObject.transform.DOScale(1f, 0.2f);
+        }
+
+
         if(isIn && !isDown)
         {
             uiOjbect .SetActive(false);
             Debug.Log("OK");
-            if(uiOjbect.tag == "Laugh")
+            if(uiOjbect.tag == "Cry")
             {
-                EventCenter.Instance.EventTrigger("Laugh");
-                MonoManager.Instance.StartCroutine(ChangeScene());
+                EventCenter.Instance.EventTrigger("Cry");
             }
-            if(uiOjbect.tag == "Bad")
+            if(uiOjbect.tag == "Nervous")
             {
-                EventCenter.Instance.EventTrigger("Bad");
+                EventCenter.Instance.EventTrigger("Nervous");
+            }
+            if(uiOjbect.tag == "Wrong")
+            {
+                EventCenter.Instance.EventTrigger("Wrong");
             }
             
         }
     }
 
-     private IEnumerator ChangeScene()
-     {
-        yield return new WaitForSeconds(1f);
-        // GameRoot.Instance.rootUIManager.Pop(true);
-        EventCenter.Instance.Clear();
-         GameRoot.Instance.rootUIManager.Push(new PassPanel(), false);
-         yield return new WaitForSeconds(0.2f);
-         SceneController.Instance.LoadSceneAsyn(new SceneA());
-     }
-    
+    private void GetPositon()
+    {
+        normalPosition = uiOjbect.transform.position;
+        isStart = true;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

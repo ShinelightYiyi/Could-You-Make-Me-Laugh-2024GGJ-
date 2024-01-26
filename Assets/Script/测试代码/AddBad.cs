@@ -19,7 +19,7 @@ public class AddBad : MonoBehaviour
         if(index >= 3)
         {
             GameObject panelA = GameObject.FindGameObjectWithTag("PanelA");
-            GameObject go = UIMethod.Instance.FindObjectInChild(panelA, "D");
+            GameObject go = GameObject.Instantiate(Resources.Load<GameObject>("Panel/D"), panelA.transform);
             Image goImage = go.GetComponent<Image>();
             goImage.DOFade(1f, 0.5f);
         }

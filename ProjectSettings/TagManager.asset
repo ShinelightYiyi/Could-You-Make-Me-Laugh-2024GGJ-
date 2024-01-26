@@ -9,10 +9,13 @@ TagManager:
   - Position
   - PassPanel
   - Canvas
-  - PanelA
-  - Laugh
-  - Bad
   - Answer
+  - BackGround
+  - GameContent
+  - Cry
+  - Nervous
+  - Wrong
+  - ChoicePanel
   layers:
   - Default
   - TransparentFX
