@@ -13,9 +13,7 @@ public class HoldMove : MonoBehaviour, IPointerDownHandler, IPointerExitHandler,
 
     private void Start()
     {
-
         uiOjbect = this.gameObject;
-
     }
 
     private void Update()
@@ -31,16 +29,26 @@ public class HoldMove : MonoBehaviour, IPointerDownHandler, IPointerExitHandler,
         {
             uiOjbect .SetActive(false);
             Debug.Log("OK");
-            MonoManager.Instance.StartCroutine(ChangeScene());
+            if(uiOjbect.tag == "Laugh")
+            {
+                EventCenter.Instance.EventTrigger("Laugh");
+            }
+            if(uiOjbect.tag == "Bad")
+            {
+                EventCenter.Instance.EventTrigger("Bad");
+            }
+           // MonoManager.Instance.StartCroutine(ChangeScene());
         }
     }
 
-    private IEnumerator ChangeScene()
-    {  
-        GameRoot.Instance.rootUIManager.Push(new PassPanel());
-        yield return new WaitForSeconds(0.2f);
-        SceneController.Instance.LoadSceneAsyn(new SceneA());
-    }
+    /* private IEnumerator ChangeScene()
+     {  
+         GameRoot.Instance.rootUIManager.Push(new PassPanel());
+         yield return new WaitForSeconds(0.2f);
+         SceneController.Instance.LoadSceneAsyn(new SceneA());
+     }
+    */
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Position" )

@@ -10,6 +10,8 @@ public class GameRoot : MonoBehaviour
 
     public UIManager rootUIManager;
 
+    private Animator laughAni;
+
     public void Awake()
     {
         rootUIManager = new UIManager();
@@ -25,11 +27,25 @@ public class GameRoot : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         GameObject go = GameObject.FindGameObjectWithTag("NormalCanvas");
         DontDestroyOnLoad(go);
-
+        EventCenter.Instance.AddEventListener("Laugh", () => LaughA());
+        EventCenter.Instance.AddEventListener("Bad" ,()=>BadA());
       
     }
 
+    private void Start()
+    {
+        rootUIManager.Push(new PanelA());
+        laughAni = GameObject.FindGameObjectWithTag("Answer").GetComponent<Animator>();
+    }
 
+    private void LaughA()
+    {
+        Debug.Log("触发Laugh事件");
+        laughAni.SetBool("canLaugh", true);
+    }
 
-
+    private void BadA()
+    {
+        Debug.Log("触发Bad事件");
+    }
 }
