@@ -18,6 +18,10 @@ public class HoldInput : MonoBehaviour, IPointerDownHandler, IPointerClickHandle
             if(pointTime >= 0.1f)
             {
                 EventCenter.Instance.EventTrigger<float>("³¤°´" , pointTime -0.1f) ;
+                if(pointTime > 1.02f)
+                {
+                    pointTime = 0f ;
+                }
             }
         }
     }
