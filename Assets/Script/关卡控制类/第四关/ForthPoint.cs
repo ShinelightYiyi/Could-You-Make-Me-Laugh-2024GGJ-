@@ -6,11 +6,18 @@ using DG.Tweening;
 
 public class ForthPoint : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler, IPointerDownHandler
 {
-    
+    private static int index;
+
+    private void Start()
+    {
+        index = 0;
+    }
     public void OnPointerDown(PointerEventData eventData)
     {
         if (gameObject.tag == "Photo") EventCenter.Instance.EventTrigger("照片");
         if (gameObject.tag == "Computer") EventCenter.Instance.EventTrigger("电脑");
+        index++;
+        EventCenter.Instance.EventTrigger<int>("开始内容", index);
     }
 
     public void OnPointerEnter(PointerEventData eventData)

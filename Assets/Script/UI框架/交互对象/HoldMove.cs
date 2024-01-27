@@ -45,6 +45,7 @@ public class HoldMove : MonoBehaviour, IPointerDownHandler, IPointerExitHandler,
             if (isIn)
             {
                 positonObject.transform.DOScale(1.1f, 0.2f);
+             //   Debug.Log("OK");
             }
             else
             {
