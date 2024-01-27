@@ -21,6 +21,8 @@ TagManager:
   - PanelA
   - Bad
   - BookPanel
+  - Photo
+  - Computer
   layers:
   - Default
   - TransparentFX
