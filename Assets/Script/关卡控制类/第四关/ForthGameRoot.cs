@@ -90,8 +90,20 @@ public class ForthGameRoot : MonoBehaviour
         {
             phoneAni.SetBool("Third", true);
             laughPop.SetActive(true);
+            Invoke("ChangeScenceReady", 1f);
         }
 
+    }
+    private void ChangeScenceReady()
+    {
+        EventCenter.Instance.Clear();
+        rootUIManager.Push(new PassPanel(), false);
+        Invoke("ChangeScne", 0.2f);
+    }
+
+    private void ChangeScne()
+    {
+        SceneController.Instance.LoadSceneAsyn(new Work());
     }
 
 }
