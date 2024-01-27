@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ChildHood.unity
     guid: a71aac68155c4814284244e8d8e97a89
+  - enabled: 1
+    path: Assets/Scenes/Student.unity
+    guid: 2e5531e71f3caa44989fa33b0f5653a3
   m_configObjects: {}
