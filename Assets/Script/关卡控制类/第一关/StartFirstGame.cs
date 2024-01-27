@@ -18,7 +18,7 @@ public class StartFirstGame : MonoBehaviour
         startSequence.Append(startFace.transform.DOScale(0.8f, 0.2f).SetEase(Ease.OutCubic));
         startSequence.Append(startFace.transform.DOScale(1f, 0.2f).SetEase(Ease.OutCubic));
         startSequence.Append(startFace.transform.DOScale(0.8f, 0.2f).SetEase(Ease.OutCubic));
-        startSequence.Append(startFace.transform.DOMove((startFace.transform.position - new Vector3(-1.5f,0f)),0.3f).SetEase(Ease.InOutQuad));
+        startSequence.Append(startFace.transform.DOMove((startFace.transform.position - new Vector3(-0.5f,0f)),0.1f).SetEase(Ease.InOutQuad));
         startSequence.Append(startFace.transform.DOMove(new Vector2(-2.40f, 1.13f), 0.6f).SetEase(Ease.OutQuad));  
         startSequence.OnComplete(() => EventCenter.Instance.EventTrigger("¿ªÊ¼"));
     }

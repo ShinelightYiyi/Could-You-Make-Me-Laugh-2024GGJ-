@@ -13,10 +13,11 @@ public class HoldMove : MonoBehaviour, IPointerDownHandler, IPointerExitHandler,
     private Animator ani;
     private Vector2 normalPosition;
     private GameObject positonObject;
-    private static int index = 0;
+    private static int index;
 
     private void Start()
     {
+        index = 0;
         uiOjbect = this.gameObject;     
         ani = gameObject.GetComponent<Animator>();
         positonObject = GameObject.FindGameObjectWithTag("Position");
@@ -39,15 +40,17 @@ public class HoldMove : MonoBehaviour, IPointerDownHandler, IPointerExitHandler,
         }
 
 
-        if(isIn)
+        if (positonObject != null)
         {
-            positonObject.transform.DOScale(1.1f, 0.2f);
+            if (isIn)
+            {
+                positonObject.transform.DOScale(1.1f, 0.2f);
+            }
+            else
+            {
+                positonObject.transform.DOScale(1f, 0.2f);
+            }
         }
-        else
-        {
-            positonObject.transform.DOScale(1f, 0.2f);
-        }
-
 
         if(isIn && !isDown)
         {

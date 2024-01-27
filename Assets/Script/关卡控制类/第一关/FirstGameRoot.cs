@@ -95,6 +95,17 @@ public class FirstGameRoot : MonoBehaviour
         if(o>=3)
         {
             motherAni.SetBool("canLaugh", true);
+            StartCoroutine(ChangeScene());
         }
+    }
+
+    private IEnumerator ChangeScene()
+    {
+        yield return new WaitForSeconds(1f);
+        rootUIManager.Pop(true);
+        EventCenter.Instance.Clear();
+        rootUIManager.Push(new PassPanel(), false);
+        yield return new WaitForSeconds(0.2f);
+        SceneController.Instance.LoadSceneAsyn(new ChildHood());
     }
 }
