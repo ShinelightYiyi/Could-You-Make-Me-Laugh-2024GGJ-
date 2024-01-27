@@ -54,7 +54,7 @@ public class ThirdGameRoot : MonoBehaviour
         if(o == 9)
         {
             motherAni.SetBool("canLaugh" , true);
-            ChangeScene();
+            Invoke("ChangeScene", 0.8f);
         }
     }
 
