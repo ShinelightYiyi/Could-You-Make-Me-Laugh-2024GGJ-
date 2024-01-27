@@ -16,6 +16,8 @@ TagManager:
   - Nervous
   - Wrong
   - ChoicePanel
+  - Slider
+  - Input
   layers:
   - Default
   - TransparentFX

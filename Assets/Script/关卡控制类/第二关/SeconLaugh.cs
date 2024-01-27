@@ -10,7 +10,7 @@ public class SeconLaugh : MonoBehaviour, IPointerDownHandler, IPointerEnterHandl
     bool canTriggerEvent;
     public void OnPointerDown(PointerEventData eventData)
     {
-        gameObject.transform.DOScale(0.9f, 0.1f).OnComplete(() => gameObject.transform.DOScale(1f, 0.1f));
+        gameObject.transform.DOScale(1f, 0.1f);
         if (!canTriggerEvent)
         {
             canTriggerEvent = true;

@@ -12,7 +12,14 @@ public class SecondGameRoot : MonoBehaviour
 
     public UIManager rootUIManager;
 
-    [SerializeField] Animator childAni,motherAni;
+    private GameObject BG;
+    private GameObject GameContent;
+
+    [SerializeField]
+    GameObject Thing;
+    [SerializeField]
+    Animator childAni,motherAni;
+    [SerializeField] GameObject Other;
 
     public void Awake()
     {
@@ -26,6 +33,8 @@ public class SecondGameRoot : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        BG = GameObject.FindGameObjectWithTag("BackGround");
+        GameContent = GameObject.FindGameObjectWithTag("GameContent");
     }
 
     private void Start()
@@ -39,6 +48,11 @@ public class SecondGameRoot : MonoBehaviour
         EventCenter.Instance.AddEventListener("ToLaugh", () => Laugh());
     }
 
+    private void Update()
+    {
+        BGControl();
+    }
+
     private void CanNotLaugh(int o)
     {
         if (o >= 3)
@@ -48,9 +62,18 @@ public class SecondGameRoot : MonoBehaviour
             DG.Tweening.Sequence goSequence = DOTween.Sequence(go);
             goSequence.Append(go.transform.DOScale(1.3f, 0.1f).SetEase(Ease.InCubic));
             goSequence.Append(go.transform.DOScale(0f, 0.4f).SetEase(Ease.InOutQuad));
-            rootUIManager.Push(new PeoplePanel(), true);
+            Question();
+            Other.SetActive(true);
         }
     }
+
+    private void BGControl()
+    {
+        BG.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) * 0.01f;
+        Thing.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) * 0.01f;
+        GameContent.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) * -0.01f;
+    }
+
 
     private void Wrong()
     {
@@ -73,6 +96,15 @@ public class SecondGameRoot : MonoBehaviour
         childAni.SetBool("Cry", false);
         childAni.SetBool("Nervous", true);
     }
+
+
+    private void Question()
+    {
+        GameObject go = GameObject.FindGameObjectWithTag("Answer");
+        Image image = go.GetComponent<Image>();
+        image.DOFade(1f, 0.5f).SetEase(Ease.OutQuad);
+    }
+
 
     private void Laugh()
     {

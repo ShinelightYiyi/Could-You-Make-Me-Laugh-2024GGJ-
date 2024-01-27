@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using DG.Tweening;
 
-public class HoldInput : MonoBehaviour, IPointerDownHandler, IPointerClickHandler, IPointerUpHandler ,IPointerExitHandler
+public class HoldInput : MonoBehaviour, IPointerDownHandler, IPointerClickHandler, IPointerUpHandler ,IPointerExitHandler,IPointerEnterHandler
 {
     private bool isDown = false;
     private static float pointTime = 0f;
@@ -44,5 +45,10 @@ public class HoldInput : MonoBehaviour, IPointerDownHandler, IPointerClickHandle
         isDown = false;
         pointTime = 0;
        // Debug.LogWarning("A");
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        gameObject.transform.DOScale(1.2f, 0.1f);
     }
 }
