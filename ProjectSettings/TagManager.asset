@@ -18,6 +18,9 @@ TagManager:
   - ChoicePanel
   - Slider
   - Input
+  - PanelA
+  - Bad
+  - BookPanel
   layers:
   - Default
   - TransparentFX

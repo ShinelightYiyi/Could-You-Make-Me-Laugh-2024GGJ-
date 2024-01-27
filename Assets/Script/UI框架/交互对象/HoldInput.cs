@@ -18,9 +18,9 @@ public class HoldInput : MonoBehaviour, IPointerDownHandler, IPointerClickHandle
             if(pointTime >= 0.1f)
             {
                 EventCenter.Instance.EventTrigger<float>("³¤°´" , pointTime -0.1f) ;
-                if(pointTime > 1.02f)
+                if(pointTime-0.1f >0.71f )
                 {
-                    pointTime = 0f ;
+                    GameObject.Destroy(gameObject);
                 }
             }
         }
@@ -48,11 +48,12 @@ public class HoldInput : MonoBehaviour, IPointerDownHandler, IPointerClickHandle
     {
         isDown = false;
         pointTime = 0;
-       // Debug.LogWarning("A");
+        gameObject.transform.DOScale(1f, 0.1f);
+        // Debug.LogWarning("A");
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        gameObject.transform.DOScale(1.2f, 0.1f);
+        gameObject.transform.DOScale(1.1f, 0.1f);
     }
 }

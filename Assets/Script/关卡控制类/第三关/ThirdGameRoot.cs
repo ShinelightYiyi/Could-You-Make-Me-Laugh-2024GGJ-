@@ -11,6 +11,11 @@ public class ThirdGameRoot : MonoBehaviour
 
     public UIManager rootUIManager;
 
+    private GameObject BG;
+
+    private GameObject GameContent;
+
+    [SerializeField] Animator motherAni;
 
     public void Awake()
     {
@@ -24,29 +29,33 @@ public class ThirdGameRoot : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        rootUIManager.Push(new BookPanelA(), true);
+     
+        BG = GameObject.FindGameObjectWithTag("BackGround");
+        GameContent = GameObject.FindGameObjectWithTag("GameContent");
     }
 
     private void Start()
     {
-        EventCenter.Instance.AddEventListener<float>( "³¤°´",(o) => ControlSlider(o));
+        EventCenter.Instance.AddEventListener<int>("¶ÁÊé" ,(o)=>ChangeEmotion(o));
     }
-     
-    private void ControlSlider(float o)
+    private void Update()
     {
-        GameObject slider = GameObject.FindGameObjectWithTag("Slider");
-        GameObject go  = UIMethod.Instance.FindObjectInChild(slider , "Image");
-     //   Debug.Log(go.transform.position.y);
-        if (go.transform.position.y < 0.05f)
-        {
-            go.transform.DOMoveY(go.transform.position.y + 0.1f, 0.1f);
-        }
+        GameContent.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) * -0.01f;
+        BG.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) * 0.01f;
+    }
 
-   
-        if(go.transform.position.y >= -1.46)
+    private void ChangeEmotion(int o)
+    {
+        if(o==3)
         {
-            slider.transform.DOShakePosition(0.1f);
+            motherAni.SetBool("canIn", true);
+            rootUIManager.Push(new BookPanel(), true);
+        }
+        if(o == 9)
+        {
+            motherAni.SetBool("canLaugh" , true);
         }
     }
+
 
 }
