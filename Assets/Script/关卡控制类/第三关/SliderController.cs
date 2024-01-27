@@ -29,7 +29,7 @@ public class SliderController : MonoBehaviour
 
         if(o>=0.71f)
         {
-            imageTra.position = new Vector3(-0.27f, imageTra.position.y, 0);
+            imageTra.position = new Vector3(-0.1f, imageTra.position.y, 0);
             index++;
             EventCenter.Instance.EventTrigger<int>("∂¡ È", index);
         }

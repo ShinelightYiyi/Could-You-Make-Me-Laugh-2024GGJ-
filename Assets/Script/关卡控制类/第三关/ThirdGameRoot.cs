@@ -54,7 +54,21 @@ public class ThirdGameRoot : MonoBehaviour
         if(o == 9)
         {
             motherAni.SetBool("canLaugh" , true);
+            ChangeScene();
         }
+    }
+
+    private void ChangeScene()
+    {
+        rootUIManager.Clear();
+        EventCenter.Instance.Clear();
+        rootUIManager.Push(new PassPanel(), false);
+        Invoke("ReallyChangeScene", 0.5f);
+    }
+
+    private void ReallyChangeScene()
+    {
+        SceneController.Instance.LoadSceneAsyn(new University());
     }
 
 
