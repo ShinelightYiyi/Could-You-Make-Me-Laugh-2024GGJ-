@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Work.unity
     guid: e471d6322e1b4ce489a544dc28e8193e
+  - enabled: 1
+    path: Assets/Scenes/PassAway.unity
+    guid: 047d6cd259033e745837cb2f0d5f9b81
   m_configObjects: {}

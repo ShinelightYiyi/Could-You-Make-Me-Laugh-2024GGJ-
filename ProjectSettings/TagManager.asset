@@ -23,6 +23,7 @@ TagManager:
   - BookPanel
   - Photo
   - Computer
+  - Talk
   layers:
   - Default
   - TransparentFX
