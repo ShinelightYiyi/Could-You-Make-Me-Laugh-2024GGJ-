@@ -15,6 +15,7 @@ public class ThirdGameRoot : MonoBehaviour
 
     private GameObject GameContent;
 
+    [SerializeField] GameObject image;
     [SerializeField] Animator motherAni;
 
     public void Awake()
@@ -46,6 +47,10 @@ public class ThirdGameRoot : MonoBehaviour
 
     private void ChangeEmotion(int o)
     {
+        if(o == 1)
+        {
+            image.transform.position = new Vector3(-0.1f, image.transform.position.y, 0);
+        }
         if(o==3)
         {
             motherAni.SetBool("canIn", true);

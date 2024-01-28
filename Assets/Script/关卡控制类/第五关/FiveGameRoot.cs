@@ -32,6 +32,8 @@ public class FiveGameRoot : MonoBehaviour
             Destroy(this.gameObject);
         }
         phoneImage = mobliePhone.GetComponent<Image>();
+        BG = GameObject.FindGameObjectWithTag("BackGround");
+        GameContent = GameObject.FindGameObjectWithTag("GameContent");
     }
 
     private void Start()
@@ -41,6 +43,12 @@ public class FiveGameRoot : MonoBehaviour
         EventCenter.Instance.AddEventListener("Cry", () => ToLaugh());
         EventCenter.Instance.AddEventListener("Wrong",()=>ToNormal());
          //Debug.Log(Choice.transform.position);
+    }
+
+    private void Update()
+    {
+        BG.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) * 0.01f;
+        GameContent.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) * -0.01f;
     }
 
     private void ToNormal()

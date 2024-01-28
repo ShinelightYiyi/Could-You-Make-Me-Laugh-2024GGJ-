@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 35719122}
   - component: {fileID: 35719121}
   m_Layer: 5
-  m_Name: Book2 (1)
+  m_Name: Book3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1258,6 +1258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef46199d378a108478564c3596690420, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 997337438}
   motherAni: {fileID: 547440117}
 --- !u!1 &2035934000
 GameObject:

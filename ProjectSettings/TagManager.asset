@@ -24,6 +24,8 @@ TagManager:
   - Photo
   - Computer
   - Talk
+  - Laugh
+  - ChoicePanelB
   layers:
   - Default
   - TransparentFX
